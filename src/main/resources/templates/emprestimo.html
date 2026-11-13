@@ -1,0 +1,69 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <title>Empréstimo</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+        background: #f5f5f5;
+      }
+      .container {
+        max-width: 700px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 24px;
+        border: 1px solid #ddd;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      td {
+        padding: 10px 8px;
+        border-bottom: 1px solid #eee;
+      }
+      td:first-child {
+        width: 210px;
+        font-weight: bold;
+      }
+      a {
+        display: inline-block;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Empréstimo</h1>
+      <table>
+        <tr>
+          <td>Usuário</td>
+          <td th:text="${emprestimo.usuario}">Usuário</td>
+        </tr>
+        <tr>
+          <td>Nome do usuário</td>
+          <td th:text="${emprestimo.nomeUsuario}">Nome</td>
+        </tr>
+        <tr>
+          <td>Livro</td>
+          <td th:text="${emprestimo.livro}">Livro</td>
+        </tr>
+        <tr>
+          <td>Data do empréstimo</td>
+          <td th:text="${#temporals.format(emprestimo.dataEmprestimo, 'dd/MM/yyyy HH:mm')}">Data</td>
+        </tr>
+        <tr>
+          <td>Data da devolução</td>
+          <td th:text="${#temporals.format(emprestimo.dataDevolucao, 'dd/MM/yyyy HH:mm')}">Data</td>
+        </tr>
+        <tr>
+          <td>Status</td>
+          <td th:text="${emprestimo.status}">Status</td>
+        </tr>
+      </table>
+      <a th:href="@{/emprestimos}">Voltar</a>
+    </div>
+  </body>
+</html>

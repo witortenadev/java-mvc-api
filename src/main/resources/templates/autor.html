@@ -1,0 +1,62 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <title>Autor</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+        background: #f5f5f5;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 24px;
+        border: 1px solid #ddd;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      td {
+        padding: 10px 8px;
+        border-bottom: 1px solid #eee;
+      }
+      td:first-child {
+        width: 180px;
+        font-weight: bold;
+      }
+      ul {
+        margin: 10px 0 0 20px;
+      }
+      a {
+        display: inline-block;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Autor</h1>
+      <table>
+        <tr>
+          <td>Nome</td>
+          <td th:text="${autor.nome}">Nome</td>
+        </tr>
+        <tr>
+          <td>Nacionalidade</td>
+          <td th:text="${autor.nacionalidade}">Nacionalidade</td>
+        </tr>
+      </table>
+
+      <h3>Obras publicadas</h3>
+      <ul>
+        <li th:each="obra : ${autor.obrasPublicadas}" th:text="${obra}">Obra</li>
+      </ul>
+
+      <a th:href="@{/autores}">Voltar</a>
+    </div>
+  </body>
+</html>

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.witortena.biblioteca.model.Autor;
 
 @Controller
-@RequestMapping("/autor")
+@RequestMapping("/autores")
 public class AutorController {
 
     @GetMapping
